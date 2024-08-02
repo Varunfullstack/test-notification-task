@@ -1,9 +1,11 @@
-import "./App.css";
+import Appbar from "./components/Appbar";
+import NotificationButtons from "./components/NotificationButtons";
 
 function App() {
   return (
     <>
-      <div></div>
+      <Appbar />
+      <NotificationButtons />
     </>
   );
 }
