@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# React Notify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Notify is a notification system built with React and Firebase. It provides real-time updates for notifications, including unread counts and the ability to mark notifications as read.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Real-time updates for notifications
+- Unread notification count
+- Pagination for notifications
+- Add new notifications
+- Mark notifications as read when clicking on them
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+- Node.js
+- Firebase account
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/react-notify.git
+   cd react-notify
+   Install dependencies:
+   npm install
+   ```
+
+Set up Firebase Emulators:
+Install Firebase CLI if you haven't already:
+npm install -g firebase-tools
+
+Initialize Firebase emulators:
+Start the Firebase emulators:
+firebase emulators:start
+
+Start the development server:
+npm run dev
+
+## Project Structure
+
+- `src/context/NotificationContext.tsx`: Provides the notification context and manages the state of notifications.
+- `src/services/notificationService.ts`: Contains functions to interact with Firebase Firestore for fetching, adding, and updating notifications.
+- `src/components/Appbar.tsx`: Displays the app bar with the notification icon and menu.
+- `src/components/NotificationMenuItem.tsx`: Displays individual notification items in the menu.
+- `src/components/NotificationButtons.tsx`: Provides buttons to send different types of notifications.
+- `src/hooks/useNotification.ts`: Custom hook to use the notification context.
+- `src/App.tsx`: Main application component.
+- `src/main.tsx`: Entry point of the application.
+- `firebase.json`: Configuration file for Firebase emulators.
