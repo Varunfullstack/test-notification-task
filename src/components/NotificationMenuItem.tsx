@@ -1,18 +1,11 @@
 import React from "react";
 import { MenuItem, ListItemText } from "@mui/material";
+import { NotificationMenuItemProps } from "../type";
 
-interface Notification {
-  id: string;
-  description: string;
-  read: boolean;
-}
-
-interface NotificationMenuItemProps {
-  notification: Notification;
-}
-
+// Component to display individual notification item
 const NotificationMenuItem: React.FC<NotificationMenuItemProps> = ({
   notification,
+  markAsRead,
 }) => {
   return (
     <MenuItem
@@ -22,9 +15,10 @@ const NotificationMenuItem: React.FC<NotificationMenuItemProps> = ({
         alignItems: "start",
         backgroundColor: notification.read ? undefined : "beige",
       }}
+      onClick={() => markAsRead(notification.id)}
     >
       <ListItemText primary="Notification" />
-      <ListItemText secondary={notification.description} />
+      <ListItemText secondary={`Notification ${notification.type}`} />
     </MenuItem>
   );
 };
